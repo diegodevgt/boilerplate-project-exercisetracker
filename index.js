@@ -41,7 +41,7 @@ const Exercise = mongoose.model("Exercise", exerciseSchema);
  
  
 //POST user to DB
-app.post("/api/exercise/new-user", (req, res) => {
+app.post("/api/users", (req, res) => {
  
     let user = new User({ username: req.body.username });
  
@@ -55,7 +55,7 @@ app.post("/api/exercise/new-user", (req, res) => {
  
  
 //GET all users from DB
-app.get("/api/exercise/users", (req, res) => {
+app.get("/api/users", (req, res) => {
     User.find((err, usersFound) => {
         if (err) return console.error(err);
         //console.error("users found: " + usersFound);
@@ -65,7 +65,7 @@ app.get("/api/exercise/users", (req, res) => {
  
  
 //POST exercise form data
-app.post("/api/exercise/add", (req, res) => {
+app.post("/api/add", (req, res) => {
  
     let exercise = new Exercise({
         userId: req.body.userId,
@@ -93,7 +93,7 @@ app.post("/api/exercise/add", (req, res) => {
  
  
 //GET exercise log
-app.get("/api/exercise/log", (req, res) => {
+app.get("/api/log", (req, res) => {
     console.log(req.query.userId);
     console.log(req.query.from);
     console.log(req.query.to);
