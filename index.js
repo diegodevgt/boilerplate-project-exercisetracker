@@ -65,7 +65,7 @@ app.get("/api/users", (req, res) => {
  
  
 //POST exercise form data
-app.post("/api/add", (req, res) => {
+app.post("/api/users", (req, res) => {
  
     let exercise = new Exercise({
         userId: req.body.userId,
