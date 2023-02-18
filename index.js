@@ -73,7 +73,7 @@ app.post("/api/users/:_id/exercises", (req, res) => {
         userId: req.params._id,
         description: req.body.description,
         duration: req.body.duration,
-        date: req.body.date ? req.body.date : Date.now()
+        date: req.body.date ? req.body.date : Date.now().toString()
     });
  
     console.log('exercise', exercise)
