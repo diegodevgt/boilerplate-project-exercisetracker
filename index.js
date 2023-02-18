@@ -65,15 +65,18 @@ app.get("/api/users", (req, res) => {
  
  
 //POST exercise form data
-app.post("/api/users", (req, res) => {
- 
+app.post("/api/users/:_id/exercises", (req, res) => {
+    console.log('new')
+    console.log('req.body', req.body);
+    console.log('req.params', req.params);
     let exercise = new Exercise({
-        userId: req.body.userId,
+        userId: req.params._id,
         description: req.body.description,
         duration: req.body.duration,
         date: req.body.date ? req.body.date : Date.now()
     });
  
+    console.log('exercise', exercise)
     exercise.save((err, data) => {
         //console.log("created exercise: " + data);
         if (err) return console.error(err);
@@ -93,13 +96,15 @@ app.post("/api/users", (req, res) => {
  
  
 //GET exercise log
-app.get("/api/log", (req, res) => {
+app.get("/api/users/:_id/logs", (req, res) => {
+    console.log(req.params)
     console.log(req.query.userId);
     console.log(req.query.from);
     console.log(req.query.to);
     console.log(req.query.limit);
+
  
-    let userId = req.query.userId;
+    let userId = req.params._id;
     let limit = Number(req.query.limit);
  
     //create query filter
