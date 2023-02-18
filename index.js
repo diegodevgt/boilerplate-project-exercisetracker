@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html')
 });
 
-console.log(process.env.MONGO_URI);
+
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
@@ -20,7 +20,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
  
 //DB connect
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://diegocumcrp:%40Hu3v1t01350@cluster0.zlgurhc.mongodb.net/fcc-mongodb-and-mongoose?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
  
 const { Schema } = mongoose;
  
